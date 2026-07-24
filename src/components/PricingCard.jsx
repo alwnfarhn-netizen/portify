@@ -88,13 +88,11 @@ export default function PricingCard() {
               className={`relative bg-white rounded-2xl p-8 flex flex-col border ${pkg.isPopular ? 'border-primary shadow-xl scale-105 z-10' : 'border-gray-200 shadow-sm'}`}
             >
               {pkg.isPopular && (
-                <motion.div 
-                  animate={{ scale: [1, 1.05, 1] }}
-                  transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                  className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                >
-                  <span className="bg-primary text-white px-4 py-1 text-sm font-semibold rounded-full tracking-wide shadow-md">Recommended</span>
-                </motion.div>
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20">
+                  <span className="bg-primary text-white px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded-full shadow-md whitespace-nowrap block">
+                    Recommended
+                  </span>
+                </div>
               )}
               <h3 className="text-2xl font-bold text-gray-900 mb-2">{pkg.name}</h3>
               <div className="text-3xl font-extrabold text-gray-900 mb-4">{pkg.price}</div>
