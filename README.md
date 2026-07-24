@@ -10,7 +10,7 @@ Proyek ini dibangun dengan memisahkan *Client-side Rendering* (Vite + React) yan
 graph TD
     Client[Browser Pengunjung / Admin] -->|HTTPS| Frontend(Vercel Hosting)
     
-    subgraph Frontend (React + Vite)
+    subgraph Frontend
         UI[UI Components]
         Router[React Router]
         State[React State]
@@ -21,7 +21,7 @@ graph TD
     
     Frontend -->|REST API| Supabase(Supabase Backend)
     
-    subgraph Supabase (BaaS)
+    subgraph Supabase
         Auth[Supabase Auth]
         DB[(PostgreSQL)]
         RLS{Row Level Security}
