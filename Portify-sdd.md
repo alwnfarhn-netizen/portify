@@ -20,7 +20,7 @@ Antigravity adalah AI agent internal yang membangun, mengonfigurasi, dan men-dep
 - Generate seluruh kode frontend (HTML, CSS, JS / React)
 - Generate backend (REST API / Node.js atau Python)
 - Setup database (schema, migrasi, seed data)
-- Konfigurasi hosting & deploy otomatis (Vercel / Netlify / VPS)
+- Konfigurasi hosting & deploy otomatis (Vercel)
 - Setup domain + SSL otomatis
 - Membaca requirement dalam bahasa natural → eksekusi teknis
 
