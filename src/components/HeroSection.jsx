@@ -5,13 +5,29 @@ export default function HeroSection() {
   return (
     <section className="pt-32 pb-20 bg-gradient-to-b from-secondary to-white overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
           
+          {/* Logo P - Ditampilkan di atas sebelum Headline pada Mobile, dan di kanan pada Desktop */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="w-full md:w-1/2 flex justify-center relative md:order-2"
+          >
+            <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full w-3/4 h-3/4 mx-auto"></div>
+            <img 
+              src="/logo P.png" 
+              alt="Portify.id Logo" 
+              className="w-32 sm:w-44 md:w-64 max-w-sm h-auto object-contain relative z-10 drop-shadow-xl" 
+            />
+          </motion.div>
+
+          {/* Text Content - Ditampilkan di bawah Logo pada Mobile, dan di kiri pada Desktop */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="w-full md:w-1/2 space-y-8 text-center md:text-left"
+            className="w-full md:w-1/2 space-y-8 text-center md:text-left md:order-1"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
               Tampil profesional di <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-pink-400">dunia digital</span>
@@ -39,20 +55,6 @@ export default function HeroSection() {
                 Hubungi Kami
               </motion.a>
             </div>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="w-full md:w-1/2 flex justify-center relative"
-          >
-            <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full w-3/4 h-3/4 mx-auto"></div>
-            <img 
-              src="/logo P.png" 
-              alt="Portify.id Logo" 
-              className="w-36 sm:w-48 md:w-64 max-w-sm h-auto object-contain relative z-10 drop-shadow-xl" 
-            />
           </motion.div>
 
         </div>
