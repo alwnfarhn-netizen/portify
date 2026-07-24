@@ -16,7 +16,7 @@ export default function HeroSection() {
           <div className="relative">
             <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full w-28 h-28 mx-auto"></div>
             <img 
-              src="/logo P.png" 
+              src="/logo-p.png" 
               alt="Portify.id Logo" 
               className="w-28 sm:w-36 md:w-44 h-auto object-contain relative z-10 drop-shadow-lg" 
             />
