@@ -114,7 +114,7 @@ export default function PricingCard() {
               <motion.a 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href={pkg.name === 'Premium' ? '#contact' : '/order'} 
+                href={pkg.name.includes('Solusi') || pkg.name === 'Premium' ? '#contact' : '/order'} 
                 className={`w-full text-center py-3 px-6 rounded-full font-medium transition-colors ${pkg.isPopular ? 'bg-primary text-white hover:bg-primary-hover shadow-lg' : 'bg-gray-100 text-gray-900 hover:bg-gray-200'}`}
               >
                 {pkg.ctaText}

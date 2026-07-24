@@ -30,6 +30,6 @@ describe('PricingCard Component', () => {
 
     expect(starterBtn).toHaveAttribute('href', '/order');
     expect(proBtn).toHaveAttribute('href', '/order');
-    expect(premiumBtn).toHaveAttribute('href', '/order'); // Sesuai kode, non-premium href adalah /order
+    expect(premiumBtn).toHaveAttribute('href', '#contact');
   });
 });
