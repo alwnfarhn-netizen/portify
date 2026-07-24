@@ -3,29 +3,19 @@ import { motion } from 'framer-motion';
 
 export default function AboutSection() {
   const features = [
-    "HTML & CSS",
-    "Desain UI Modern",
-    "Mobile-first Responsive",
-    "SEO Dasar Dioptimalkan",
-    "Fast Delivery",
-    "Revisi Fleksibel"
+    { title: "HTML & CSS", subtitle: "Struktur & Kode Bersih" },
+    { title: "Desain UI Modern", subtitle: "Tampilan Estetis & Interaktif" },
+    { title: "Mobile-first Responsive", subtitle: "Sempurna di Semua Layar" },
+    { title: "SEO Dasar Dioptimalkan", subtitle: "Mudah Ditemukan di Google" },
+    { title: "Fast Delivery", subtitle: "Pengerjaan Cepat & Tepat" },
+    { title: "Revisi Fleksibel", subtitle: "Kepuasan Hasil Terjamin" }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-  };
+  // Triplikasi array untuk efek seamless infinite loop ticker
+  const duplicatedFeatures = [...features, ...features, ...features];
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -44,25 +34,38 @@ export default function AboutSection() {
             </p>
           </div>
         </motion.div>
+      </div>
+
+      {/* Infinite Horizontal Carousel / Marquee Auto-Scroll */}
+      <div className="relative w-full overflow-hidden py-4">
+        {/* Gradient Mask Fading Edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
         <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+          className="flex gap-6 w-max"
+          animate={{ x: ["0%", "-33.333%"] }}
+          transition={{
+            ease: "linear",
+            duration: 25,
+            repeat: Infinity
+          }}
         >
-          {features.map((feature, index) => (
+          {duplicatedFeatures.map((feature, index) => (
             <motion.div 
               key={index} 
-              variants={itemVariants}
-              whileHover={{ y: -5, boxShadow: "0px 10px 15px -3px rgba(0,0,0,0.1)" }}
-              className="bg-gray-50 rounded-xl p-6 text-center border border-gray-100 cursor-pointer"
+              whileHover={{ scale: 1.04, y: -4 }}
+              className="flex items-center gap-4 bg-gray-50/90 hover:bg-white rounded-2xl px-6 py-5 border border-gray-100 shadow-sm hover:shadow-md transition-all shrink-0 cursor-pointer min-w-[280px] sm:min-w-[320px]"
             >
-              <div className="w-10 h-10 mx-auto bg-pink-100 text-primary rounded-full flex items-center justify-center mb-4">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+              <div className="w-12 h-12 bg-pink-100 text-primary rounded-xl flex items-center justify-center shrink-0">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
               </div>
-              <h3 className="font-semibold text-gray-900">{feature}</h3>
+              <div>
+                <h3 className="font-bold text-gray-900 text-base">{feature.title}</h3>
+                <p className="text-xs text-gray-500 mt-0.5">{feature.subtitle}</p>
+              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -70,3 +73,4 @@ export default function AboutSection() {
     </section>
   );
 }
+
